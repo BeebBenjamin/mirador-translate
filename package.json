@@ -1,5 +1,5 @@
 {
-  "name": "mirador-translations",
+  "name": "mirador-translate",
   "version": "1.0.0",
   "description": "A basic Mirador 3 plug-in to toggle on or off annotation translations",
   "main": "index.js",
