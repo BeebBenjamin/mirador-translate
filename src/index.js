@@ -1,2 +1,2 @@
-import _miradorTranslate from './plugins/miradorTranslate';
+import _miradorTranslate from './plugins/miradorTranslatePlugin';
 export { _miradorTranslate as miradorTranslate };
