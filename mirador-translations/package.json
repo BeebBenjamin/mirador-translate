@@ -1,0 +1,35 @@
+{
+  "name": "mirador-translations",
+  "version": "1.0.0",
+  "description": "A basic Mirador 3 plug-in to toggle on or off annotation translations",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "eslint --fix . && echo 'Lint complete.'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TBC"
+  },
+  "keywords": [
+    "Translations",
+    "transcriptions",
+    "annotations"
+  ],
+  "author": "Richard Benjamin Allen",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "@babel/eslint-parser": "^7.22.5",
+    "@babel/preset-react": "^7.24.7",
+    "@materials-ui/core": "^0.0.27",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "mirador": "^3.3.0",
+    "prettier": "^2.8.8",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
