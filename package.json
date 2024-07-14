@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "TBC"
+    "url": "git+https://github.com/BeebBenjamin/mirador-translate.git"
   },
   "keywords": [
     "Translations",
