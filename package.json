@@ -18,6 +18,18 @@
   ],
   "author": "Richard Benjamin Allen",
   "license": "MPL-2.0",
+  "peerDependencies": {
+    "mirador": "*",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "resolutions": {
+    "word-wrap": "npm:@aashutoshrathi/word-wrap",
+    "merge": "^2.1.1"
+  },
+  "overrides": {
+    "tap-out": "github:scottcorgan/tap-out.git"
+  },
   "dependencies": {
     "@babel/eslint-parser": "^7.22.5",
     "@babel/preset-react": "^7.24.7",
