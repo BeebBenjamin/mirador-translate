@@ -22,7 +22,7 @@ module.exports = function (env) {
       ],
     },
     output: {
-      filename: 'archiox-mirador-plugin.js',
+      filename: 'mirador-translate.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: './dist/',
       libraryExport: 'default',
