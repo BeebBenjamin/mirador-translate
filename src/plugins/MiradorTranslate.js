@@ -6,34 +6,40 @@ class MiradorTranslate extends React.Component {
     super(props);
     this.state = {
       translate: false,
-      englishAnnotations: null
+      englishAnnotations: null,
     };
   }
 
   onClickHandler() {
-    this.setState((prevState) => ({ translate: !prevState.translate  }));
-    const translate = this.state.translate;
-    const languageRoute = translate ? '/en/' : '/ar/';
-    const languageSwap = translate ?  '/ar/' : '/en/';
-    const canvasId = this.props.canvas.id;  // get current canvas ID
+    this.setState((prevState) => ({ translate: !prevState.translate }));
     console.log(this.state.englishAnnotations);
-    // get annotation using URL
-
-    //console.log(languageRoute, languageSwap, translate, canvasId, annotationId);
-    //this.props.toggleTranslate(translate, canvasId, annotation);
-
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.annotationId !== this.props.annotationId) {
+    if (
+      prevProps.annotationId !== this.props.annotationId ||
+      prevState.translate !== this.state.translate
+    ) {
       if (this.props.annotationId) {
-        fetch(this.props.annotationId)
-            .then((respo) => {
-              return respo.json();
-            })
-            .then((data) => {
-              this.setState({englishAnnotations: data});
-            });
+        console.log(this.state.translate);
+        const languageRoute = this.state.translate ? '/ar/' : '/en/';
+        const languageSwap = this.state.translate ? '/en/' : '/ar/';
+        const annotationId = this.props.annotationId.replace(
+          languageSwap,
+          languageRoute
+        );
+        console.log(annotationId);
+
+        fetch(annotationId)
+          .then((respo) => {
+            return respo.json();
+          })
+          .then((data) => {
+            this.setState({ englishAnnotations: data });
+          })
+          .catch((error) => {
+            this.setState({ englishAnnotations: null });
+          });
       }
     }
   }
@@ -48,15 +54,15 @@ class MiradorTranslate extends React.Component {
       windowViewType,
     } = this.props;
     return (
-        <div style={{display: "flex"}}>
-          <TargetComponent
-              {...targetProps} // eslint-disable-line react/jsx-props-no-spreading
-          />
-          <MiradorTranslateButton
-              onClick={() => this.onClickHandler()}
-              translate={this.state.translate}
-          />
-        </div>
+      <div style={{ display: 'flex' }}>
+        <TargetComponent
+          {...targetProps} // eslint-disable-line react/jsx-props-no-spreading
+        />
+        <MiradorTranslateButton
+          onClick={() => this.onClickHandler()}
+          translate={this.state.translate}
+        />
+      </div>
     );
   }
 }

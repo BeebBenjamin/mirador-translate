@@ -4,7 +4,7 @@ import * as actions from 'mirador/dist/es/src/state/actions';
 import * as pluginActions from './state/actions';
 
 const getAnnotationId = (state, windowId) => {
-  const canvasId = getCurrentCanvas(state, {windowId}).id;
+  const canvasId = getCurrentCanvas(state, { windowId }).id;
   const languageSwap = '/en/';
   const languageRoute = '/ar/';
   const annotation = state.annotations[canvasId];
@@ -18,9 +18,13 @@ const getAnnotationId = (state, windowId) => {
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
-  addCompanionWindow: (content, additionalProps) => dispatch(
-      actions.addCompanionWindow(props.targetProps.windowId, { content, ...additionalProps }),
-  ),
+  addCompanionWindow: (content, additionalProps) =>
+    dispatch(
+      actions.addCompanionWindow(props.targetProps.windowId, {
+        content,
+        ...additionalProps,
+      })
+    ),
 });
 
 const mapStateToProps = (state, { targetProps: { windowId } }) => ({
@@ -38,5 +42,5 @@ export default [
     mapStateToProps,
     mode: 'wrap',
     target: 'AnnotationSettings',
-  }
+  },
 ];

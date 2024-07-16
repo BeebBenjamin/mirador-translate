@@ -15,20 +15,20 @@ class MiradorTranslateButton extends React.Component {
   render() {
     const { translate, onClick } = this.props;
     return (
-        <MiradorMenuButton
-            aria-label={
-              translate
-                  ? 'Turn annotations back to Arabic'
-                  : 'Translate annotations into English'
-            }
-            style={{
-              float: 'left',
-              clear: 'both',
-            }}
-            onClick={onClick}
-        >
-          {translate ? <ChatBubbleOutline />: <ChatBubble />}
-        </MiradorMenuButton>
+      <MiradorMenuButton
+        aria-label={
+          translate
+            ? 'Turn annotations back to Arabic'
+            : 'Translate annotations into English'
+        }
+        style={{
+          float: 'left',
+          clear: 'both',
+        }}
+        onClick={onClick}
+      >
+        {translate ? <ChatBubbleOutline /> : <ChatBubble />}
+      </MiradorMenuButton>
     );
   }
 }
