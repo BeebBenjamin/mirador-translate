@@ -18,8 +18,8 @@ class MiradorTranslateButton extends React.Component {
       <MiradorMenuButton
         aria-label={
           translate
-            ? 'Turn annotations back to Arabic'
-            : 'Translate annotations into English'
+            ? 'Translate annotations into English'
+            : 'Turn annotations back to Arabic'
         }
         style={{
           float: 'left',
@@ -27,7 +27,7 @@ class MiradorTranslateButton extends React.Component {
         }}
         onClick={onClick}
       >
-        {translate ? <ChatBubbleOutline /> : <ChatBubble />}
+        {translate ? <ChatBubble /> : <ChatBubbleOutline />}
       </MiradorMenuButton>
     );
   }

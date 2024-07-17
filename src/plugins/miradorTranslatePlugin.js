@@ -2,6 +2,8 @@ import MiradorTranslate from './MiradorTranslate';
 import { getCurrentCanvas } from 'mirador/dist/es/src/state/selectors';
 import * as actions from 'mirador/dist/es/src/state/actions';
 import * as pluginActions from './state/actions';
+import { rootSaga } from 'mirador-translate/src/plugins/state/sagas';
+import { updateAnnotationsReducer } from './state/reducers';
 
 const getAnnotationId = (state, windowId) => {
   const canvasId = getCurrentCanvas(state, { windowId }).id;
@@ -25,13 +27,17 @@ const mapDispatchToProps = (dispatch, props) => ({
         ...additionalProps,
       })
     ),
+  updateAnnotations: (targetId, annotationId, annotationJson) =>
+    dispatch(
+      pluginActions.updateAnnotations(targetId, annotationId, annotationJson)
+    ),
 });
 
 const mapStateToProps = (state, { targetProps: { windowId } }) => ({
   config: state.config,
   state: state,
-  canvas: getCurrentCanvas(state, { windowId }),
-  toggleTranslate: pluginActions.toggleTranslate,
+  windowId: windowId,
+  canvasId: getCurrentCanvas(state, { windowId }).id,
   annotationId: getAnnotationId(state, windowId),
 });
 
@@ -41,6 +47,8 @@ export default [
     mapDispatchToProps,
     mapStateToProps,
     mode: 'wrap',
+    saga: rootSaga,
+    reducer: { annotations: updateAnnotationsReducer },
     target: 'AnnotationSettings',
   },
 ];
