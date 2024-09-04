@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ChatBubble from '@material-ui/icons/ChatBubble';
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 import { MiradorMenuButton } from 'mirador/dist/es/src/components/MiradorMenuButton';
-import PropTypes from 'prop-types';
 
 /**
  * The MiradorTranslateButton component is the main plug-in button used to toggle translated annotations on or off.
